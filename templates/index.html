@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <title>ExamFlow - Gelisim Paneli</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"
+    </head>
+    <body>
+        <h1> ExamFlow: Sinava Gidis</h1>
+
+        <div class="container">
+            {% for ders, detay in veriler.items() %}
+            <div class="kart">
+                <h2>{{ ders }}</h2>
+                <p>Konu Ilerlemesi: {{ detay.biten }} / {{ detay.toplam }}</p>
+                <p>Toplam Hata: <span class="hata">{{ detay.yanlis}}</span></p>
+
+                <div class="bar-dis">
+                    <div class="bar-ic" style="width: {{ (detay.biten / detay.toplam) * 100 }}%; background-color: {{ detay.renk }};">
+                        %{{ ((detay.biten / detay.toplam) * 100) | round (1) }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="alt-not">
+            <p>Bugun Tarih!</p>
+        </div>
+    </body>
+</html>
