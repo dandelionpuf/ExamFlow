@@ -3,29 +3,60 @@
     <head>
         <meta charset="UTF-8">
         <title>ExamFlow - Gelisim Paneli</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
         <h1> ExamFlow: Sinava Gidis</h1>
-
+        <div class="genel-ilerleme-kart">
+            <div class="genel-bilgi">
+                <h2>Genel Hazirlik Durumu</h2>
+                <p>Toplam <strong>{{ toplam_konu }}</strong>konudan <strong>{{ toplam_biten }}</strong> tanesi bitti.</p>
+            </div>
+            <div class="bar-dis" style="height: 35px; background-color: #e0e0e0; border-radius: 20px;">
+                <div class="bar-ic"
+                     data-width="{{ genel_yuzde }}%"
+                      style="width: 0%; background-color: #2ecc71; line-height: 35px; font-size: 18px; border-radius: 20px;">
+            </div>
+        </div>
+        <div class="durum_mesaji">
+            {% if genel_yuzde < 30 %}
+                <p>Yolun Basindasin Pes Etmek Yok</p>
+            {% elif genel_yuzde < 70 %}
+                <p>Guzel Gidiyorsun Devam Et</p>
+            {% else %}
+                <p>Harika sinavlari domaltazor yaptin</p>
+            {% endif %}
+        </div>
+    </div>
         <div class="container">
-            {% for ders, detay in veriler.items() %}
+            {% for ders  in veriler %}
             <div class="kart">
-                <h2>{{ ders }}</h2>
-                <p>Konu Ilerlemesi: {{ detay.biten }} / {{ detay.toplam }}</p>
-                <p>Toplam Hata: <span class="hata">{{ detay.yanlis}}</span></p>
-
+                <h2>{{ ders.ders_adi}}</h2>
+                <p>Konu Ilerlemesi: {{ ders.biten }} / {{ ders.toplam }}</p>
+                <p>Toplam Hata: <span class="hata">{{ ders.yanlis}}</span></p>
                 <div class="bar-dis">
-                    <div class="bar-ic" style="width: {{ (detay.biten / detay.toplam) * 100 }}%; background-color: {{ detay.renk }};">
-                        %{{ ((detay.biten / detay.toplam) * 100) | round (1) }}
-                    </div>
+                   <div class="bar-ic"
+                   data-width="{{ (ders.biten / ders.toplam) * 100 }}%"
+                   style="width: 0%; background-color: {{ ders.renk }};">
+                   {{ ((ders.biten / ders.toplam) * 100) | round(1) }}%
                 </div>
             </div>
+        </div>
             {% endfor %}
+            <div class="alt_not">
+                <h3>{{ selam }}</h3>
+                <p>Bugun: <strong>{{ tarih }}</strong></p>
         </div>
-
-        <div class="alt-not">
-            <p>Bugun Tarih!</p>
+        <div style="margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <a href="/guncelle" class="btn-guncelle">
+                Verileri Guncelle
+            </a>
+            
+            <a href="/ekle" class="btn-guncelle" style="background-color: #2ecc71;">
+                Yeni Ders Ekle
+            </a>
         </div>
-    </body>
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
 </html>

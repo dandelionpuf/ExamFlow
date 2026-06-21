@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="Tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yeni Ders Ekle - ExamFlow</title>
+        <link rel="Stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="genel-ilerleme-kart" style="max-width: 400px; width: 90%;">
+            <h2> Yeni Ders Ekle</h2>
+            <form action="/ekle" method="POST">
+                <div style="margin-bottom: 15px; text-align: left;">
+                    <label>Dersin Adi:</label>
+                    <input type="text" name="ders_adi" placeholder="Orn: Fizik" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; border-radius:8px; border: 1px solid #ddd;">
+                </div>
+                <div style="margin-bottom: 15px; text-align: left;">
+                    <label>Toplam Konu Sayisi:</label>
+                    <input type="number" name="toplam" placeholder="0rn: 20" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ddd;">
+                </div>
+                <div style="margin-bottom: 20px; text-align: left;">
+                    <label>Kart Rengi:</label>
+                    <input type="color" name="renk" value="#3498db"
+                        style="width: 100%; height: 40px; border: none; cursor: pointer; background: none;">
+                </div>
+                <button type="submit" class="btn-guncelle" style="width: 100%; border: none; cursor: pointer;">
+                    Dersi Kaydet
+                </button>
+            </form>
+            <br>
+            <a href="/" style="text-decoration: none; color: #7f8c8d; font-size: 0.9rem;">Vazgec, Geri Don</a>
+        </div>
+    </body>
+</html>

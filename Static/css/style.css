@@ -49,21 +49,26 @@ h2 {
 .bar-dis {
     background-color: #ecf0f1;
     border-radius: 25px;
-    height: 30px;
-    margin-top: 20px;
+    height: 18px !important;
+    margin-top: 5px !important;
     overflow: hidden;
     border: 1px solid #ddd;
 }
 
 .bar-ic {
     height: 100%;
+    display: block;
+    border-radius: inherit;
     color: white;
-    font-size: 14px;
-    line-height: 30px;
+    font-size: 11px !important;
+    line-height: 18px !important;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    transition: width1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    text-align: center;
+    transition: width 2s ease-in-out !important;
+    width: 0;
+    background-color: #3498db;
 }
+   
 
 .alt-not {
     margin-top: 60px;
@@ -74,3 +79,56 @@ h2 {
     border-left: 5px solid #3498db;
     color: #7f8c8d;
 }
+
+
+.genel-ilerleme-kart {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 15px auto;
+    border: 2px solid #2ecc71;
+    width: 70%;
+    max-width: 600px;
+    transition: transform 0.3 ease;
+}
+
+.genel-ilerleme-kart h2 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.genel-ilerleme-kart p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.genel-ilerleme-kart:hover {
+transform: translateY(-5px);
+}
+
+.durum-mesaji {
+    margin-top: 5px !important;
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 0.85rem !important;
+}
+
+.btn-guncelle {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    background: #3498db;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-guncelle:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<htmllang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Veri Guncelle - ExamFlow</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Verileri Guncelle</h1>
+        <div class="kart" style="margin: 0 auto; width: 400px;">
+            <form action="/guncelle" method="POST">
+                <label>Ders Sec:</label><br>
+                <select name="ders_adi">
+                    <option value="Tarih">Tarih</option>
+                    <option value="Turkce">Turkce</option>
+                </select><br><br>
+
+                <label>Yeni Biten Konu Sayisi:</label><br>
+                <input type="number" name="biten" required><br><br>
+
+                <label>Yeni Hata Sayisi:</label><br>
+                <input type="number" name="hata" required><br><br>
+
+                <button type="submit" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Guncelle Ve Kaydet
+                </button>
+            </form>
+        </div>
+        <br>
+        <a href="/">Vazgec Ve Geri Don</a>
+    </body>
+</html>
